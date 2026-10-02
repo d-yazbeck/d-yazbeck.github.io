@@ -6,128 +6,534 @@
 <title>DentalFit — Dental School Application Matcher</title>
 <style>
 :root{--navy:#102a43;--blue:#1976d2;--sky:#eaf4ff;--green:#16845b;--greenbg:#e9f8f1;--yellow:#a36b00;--yellowbg:#fff7df;--red:#b42318;--redbg:#fff0ef;--ink:#172b4d;--muted:#62748a;--line:#d9e2ec;--bg:#f6f9fc;--white:#fff;--shadow:0 10px 30px rgba(16,42,67,.08)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
 header{background:linear-gradient(135deg,#102a43,#185a9d);color:white;padding:28px 22px}
-.wrap{max-width:1180px;margin:auto}.brand{font-weight:800;font-size:24px;letter-spacing:-.5px}.brand span{color:#8bd3ff}
-.hero{padding:46px 0 30px}.hero h1{font-size:42px;line-height:1.08;margin:0 0 12px;letter-spacing:-1.3px}.hero p{max-width:760px;color:#dcecff;font-size:17px;margin:0}
+.wrap{max-width:1180px;margin:auto}
+.brand{font-weight:800;font-size:24px;letter-spacing:-.5px}
+.brand span{color:#8bd3ff}
+.hero{padding:46px 0 30px}
+.hero h1{font-size:42px;line-height:1.08;margin:0 0 12px;letter-spacing:-1.3px}
+.hero p{max-width:760px;color:#dcecff;font-size:17px;margin:0}
 .card{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:26px;margin:20px 0}
-h2{margin:0 0 18px;font-size:22px}.sub{color:var(--muted);font-size:14px;margin-top:-10px;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-label{font-size:13px;font-weight:700;display:block;margin-bottom:7px}.hint{font-size:12px;color:var(--muted);font-weight:400}
-input,select{width:100%;padding:12px 13px;border:1px solid #bcccdc;border-radius:10px;font:inherit;background:white;color:var(--ink)}input:focus,select:focus{outline:2px solid #9fd3ff;border-color:var(--blue)}
+h2{margin:0 0 18px;font-size:22px}
+.sub{color:var(--muted);font-size:14px;margin-top:-10px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+label{font-size:13px;font-weight:700;display:block;margin-bottom:7px}
+.hint{font-size:12px;color:var(--muted);font-weight:400}
+input,select{width:100%;padding:12px 13px;border:1px solid #bcccdc;border-radius:10px;font:inherit;background:white;color:var(--ink)}
+input:focus,select:focus{outline:2px solid #9fd3ff;border-color:var(--blue)}
 .school-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-height:390px;overflow:auto;padding-right:5px}
-.school{border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff;display:flex;gap:9px;align-items:flex-start}.school input{width:auto;margin-top:4px}.school small{display:block;color:var(--muted)}
-button{border:0;border-radius:11px;padding:13px 18px;font-weight:800;font-size:15px;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#e7eef6;color:var(--ink)}.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
-.hidden{display:none}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:16px;border:1px solid var(--line);border-radius:13px;background:#fbfdff}.stat b{display:block;font-size:24px}.stat span{color:var(--muted);font-size:12px}
-.result{border:1px solid var(--line);border-radius:15px;padding:18px;margin:12px 0;background:white}.result-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.schoolname{font-size:19px;font-weight:800}.meta{color:var(--muted);font-size:13px;margin-top:3px}.badge{display:inline-block;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px;white-space:nowrap}.safety{color:var(--green);background:var(--greenbg)}.target{color:var(--yellow);background:var(--yellowbg)}.reach{color:var(--red);background:var(--redbg)}
-.bar{height:8px;background:#e8eef5;border-radius:20px;overflow:hidden;margin:13px 0}.fill{height:100%;background:var(--blue);border-radius:20px}.reason{font-size:13px;color:#41566d}.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.chip{background:#eef4f9;padding:5px 8px;border-radius:8px;font-size:11px;color:#476178}
+.school{border:1px solid var(--line);border-radius:11px;padding:11px;background:#fff;display:flex;gap:9px;align-items:flex-start}
+.school input{width:auto;margin-top:4px}
+.school small{display:block;color:var(--muted)}
+button{border:0;border-radius:11px;padding:13px 18px;font-weight:800;font-size:15px;cursor:pointer}
+.primary{background:var(--blue);color:white}
+.secondary{background:#e7eef6;color:var(--ink)}
+.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+.hidden{display:none}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{padding:16px;border:1px solid var(--line);border-radius:13px;background:#fbfdff}
+.stat b{display:block;font-size:24px}
+.stat span{color:var(--muted);font-size:12px}
+.result{border:1px solid var(--line);border-radius:15px;padding:18px;margin:12px 0;background:white}
+.result-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}
+.schoolname{font-size:19px;font-weight:800}
+.meta{color:var(--muted);font-size:13px;margin-top:3px}
+.badge{display:inline-block;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px;white-space:nowrap}
+.safety{color:var(--green);background:var(--greenbg)}
+.target{color:var(--yellow);background:var(--yellowbg)}
+.reach{color:var(--red);background:var(--redbg)}
+.bar{height:8px;background:#e8eef5;border-radius:20px;overflow:hidden;margin:13px 0}
+.fill{height:100%;background:var(--blue);border-radius:20px}
+.reason{font-size:13px;color:#41566d}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.chip{background:#eef4f9;padding:5px 8px;border-radius:8px;font-size:11px;color:#476178}
 .notice{background:#fff9e8;border:1px solid #f2d58b;border-radius:12px;padding:13px;font-size:13px;color:#654f12}
-footer{padding:28px 0 45px;color:var(--muted);font-size:12px}.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
-@media(max-width:800px){.grid,.grid3,.summary{grid-template-columns:1fr}.school-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:32px}.result-head{flex-direction:column}.actions{justify-content:stretch}.actions button{flex:1}}
+
+/* Footer */
+footer{
+  padding:28px 0 45px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.footer-content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  text-align:left;
+}
+
+.footer-photo{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--line);
+}
+
+.footer-name{
+  color:var(--ink);
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:2px;
+}
+
+.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+@media(max-width:800px){
+  .grid,.grid3,.summary{grid-template-columns:1fr}
+  .school-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:32px}
+  .result-head{flex-direction:column}
+  .actions{justify-content:stretch}
+  .actions button{flex:1}
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap"><div class="brand">Dental<span>Fit</span></div><div class="hero"><h1>Find your dental school fit.</h1><p>Enter your academic profile, choose the schools you are considering, and get a personalized Safety / Target / Reach breakdown.</p></div></div></header>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Dental<span>Fit</span></div>
+
+    <div class="hero">
+      <h1>Find your dental school fit.</h1>
+      <p>Enter your academic profile, choose the schools you are considering, and get a personalized Safety / Target / Reach breakdown.</p>
+    </div>
+  </div>
+</header>
 
 <main class="wrap">
+
 <section class="card">
 <h2>1. Your application profile</h2>
 <p class="sub">This prototype uses academic strength, experience, residency fit, and school-specific factors. It does not use letters of recommendation.</p>
+
 <div class="grid3">
-<div><label>Overall GPA <span class="hint">(0–4.0)</span></label><input id="gpa" type="number" min="0" max="4" step=".01" placeholder="3.60"></div>
-<div><label>Science GPA <span class="hint">(0–4.0)</span></label><input id="sgpa" type="number" min="0" max="4" step=".01" placeholder="3.50"></div>
-<div><label>DAT Academic Average <span class="hint">(new 200–600 scale)</span></label><input id="dat" type="number" min="200" max="600" step="10" placeholder="350"></div>
-<div><label>DAT Total Science <span class="hint">(200–600)</span></label><input id="ts" type="number" min="200" max="600" step="10" placeholder="350"></div>
-<div><label>Shadowing hours</label><input id="shadow" type="number" min="0" placeholder="100"></div>
-<div><label>Clinical / dental experience hours</label><input id="clinical" type="number" min="0" placeholder="150"></div>
-<div><label>Volunteer hours</label><input id="volunteer" type="number" min="0" placeholder="150"></div>
-<div><label>Research hours</label><input id="research" type="number" min="0" placeholder="100"></div>
-<div><label>Leadership / extracurricular strength</label><select id="lead"><option value="1">Strong</option><option value=".7" selected>Moderate</option><option value=".4">Limited</option></select></div>
-<div><label>Home state</label><select id="state"></select></div>
-<div><label>Application timing</label><select id="timing"><option value="1">Early</option><option value=".85" selected>Average</option><option value=".65">Late</option></select></div>
-<div><label>Prerequisites completed?</label><select id="prereq"><option value="1" selected>Yes</option><option value=".5">Some still in progress</option></select></div>
+
+<div>
+<label>Overall GPA <span class="hint">(0–4.0)</span></label>
+<input id="gpa" type="number" min="0" max="4" step=".01" placeholder="3.60">
+</div>
+
+<div>
+<label>Science GPA <span class="hint">(0–4.0)</span></label>
+<input id="sgpa" type="number" min="0" max="4" step=".01" placeholder="3.50">
+</div>
+
+<div>
+<label>DAT Academic Average <span class="hint">(new 200–600 scale)</span></label>
+<input id="dat" type="number" min="200" max="600" step="10" placeholder="350">
+</div>
+
+<div>
+<label>DAT Total Science <span class="hint">(200–600)</span></label>
+<input id="ts" type="number" min="200" max="600" step="10" placeholder="350">
+</div>
+
+<div>
+<label>Shadowing hours</label>
+<input id="shadow" type="number" min="0" placeholder="100">
+</div>
+
+<div>
+<label>Clinical / dental experience hours</label>
+<input id="clinical" type="number" min="0" placeholder="150">
+</div>
+
+<div>
+<label>Volunteer hours</label>
+<input id="volunteer" type="number" min="0" placeholder="150">
+</div>
+
+<div>
+<label>Research hours</label>
+<input id="research" type="number" min="0" placeholder="100">
+</div>
+
+<div>
+<label>Leadership / extracurricular strength</label>
+<select id="lead">
+<option value="1">Strong</option>
+<option value=".7" selected>Moderate</option>
+<option value=".4">Limited</option>
+</select>
+</div>
+
+<div>
+<label>Home state</label>
+<select id="state"></select>
+</div>
+
+<div>
+<label>Application timing</label>
+<select id="timing">
+<option value="1">Early</option>
+<option value=".85" selected>Average</option>
+<option value=".65">Late</option>
+</select>
+</div>
+
+<div>
+<label>Prerequisites completed?</label>
+<select id="prereq">
+<option value="1" selected>Yes</option>
+<option value=".5">Some still in progress</option>
+</select>
+</div>
+
 </div>
 </section>
 
 <section class="card">
+
 <h2>2. Choose dental schools</h2>
 <p class="sub">Select the schools you want DentalFit to compare. The prototype includes a broad U.S. school list.</p>
-<div style="display:flex;gap:10px;margin-bottom:13px"><input id="search" placeholder="Search by school or state..." oninput="renderSchools()"><button class="secondary" onclick="selectVisible()">Select visible</button><button class="secondary" onclick="clearSchools()">Clear</button></div>
+
+<div style="display:flex;gap:10px;margin-bottom:13px">
+<input id="search" placeholder="Search by school or state..." oninput="renderSchools()">
+<button class="secondary" onclick="selectVisible()">Select visible</button>
+<button class="secondary" onclick="clearSchools()">Clear</button>
+</div>
+
 <div id="schoolGrid" class="school-grid"></div>
-<div class="actions"><button class="primary" onclick="rankSchools()">Rank my schools →</button></div>
+
+<div class="actions">
+<button class="primary" onclick="rankSchools()">Rank my schools →</button>
+</div>
+
 </section>
 
 <section id="resultsSection" class="card hidden">
+
 <h2>Your school fit report</h2>
 <p class="sub">Schools are grouped by estimated application fit, not by the quality or prestige of the dental school.</p>
+
 <div class="summary" id="summary"></div>
+
 <div id="results"></div>
-<div class="notice"><b>Important:</b> This is a planning prototype, not an admissions prediction. Dental schools use holistic review, and requirements, class profiles, residency preferences, and DAT reporting can change. Always verify current requirements directly with each school.</div>
+
+<div class="notice">
+<b>Important:</b> This is a planning prototype, not an admissions prediction. Dental schools use holistic review, and requirements, class profiles, residency preferences, and DAT reporting can change. Always verify current requirements directly with each school.
+</div>
+
 </section>
+
 </main>
 
-<footer><div class="wrap">DentalFit static prototype • U.S. DDS/DMD schools • Designed for planning, not guaranteed admission outcomes.</div></footer>
+<footer>
+  <div class="wrap footer-content">
+
+    <img
+      src="FDE627DD-791D-4F7B-84C3-4DE071F00E9B_1_105_c.jpeg"
+      alt="Daniel Yazbeck"
+      class="footer-photo"
+    >
+
+    <div>
+      <div class="footer-name">Created by Daniel Yazbeck</div>
+      <div>
+        DentalFit static prototype • U.S. DDS/DMD schools •
+        Designed for planning, not guaranteed admission outcomes.
+      </div>
+    </div>
+
+  </div>
+</footer>
 
 <script>
+
 const states = ["AL","AZ","AR","CA","CO","CT","DC","FL","GA","IL","IN","IA","KY","LA","ME","MD","MA","MI","MN","MS","MO","NE","NV","NJ","NY","NC","OH","OK","OR","PA","SC","TN","TX","UT","VA","WA","WV","WI","PR"];
+
 const schools = [
-["University of Alabama at Birmingham","AL",3.78,350,1.0],["Arizona School of Dentistry & Oral Health","AZ",3.55,330,.75],["Midwestern University College of Dental Medicine-Arizona","AZ",3.55,330,.75],["University of Arkansas for Medical Sciences","AR",3.65,340,.9],
-["Loma Linda University","CA",3.75,340,.65],["UCLA School of Dentistry","CA",3.88,350,.55],["UCSF School of Dentistry","CA",3.78,350,.65],["University of Southern California","CA",3.70,340,.85],["University of the Pacific","CA",3.72,345,.8],["Western University of Health Sciences","CA",3.65,335,.85],["California Northstate University","CA",3.60,330,.8],
-["University of Colorado School of Dental Medicine","CO",3.65,340,.8],["University of Connecticut School of Dental Medicine","CT",3.75,345,.75],["Howard University College of Dentistry","DC",3.55,325,.8],
-["LECOM School of Dental Medicine","FL",3.60,325,.85],["Nova Southeastern University","FL",3.65,330,.9],["University of Florida College of Dentistry","FL",3.80,345,.95],
-["Dental College of Georgia at Augusta University","GA",3.72,340,.95],["University of Illinois Chicago","IL",3.65,335,.8],["Southern Illinois University","IL",3.70,335,.85],["Midwestern University College of Dental Medicine-Illinois","IL",3.55,330,.75],
-["Indiana University School of Dentistry","IN",3.70,335,.85],["University of Iowa College of Dentistry","IA",3.75,340,.8],["University of Kentucky College of Dentistry","KY",3.65,335,.85],["University of Louisville School of Dentistry","KY",3.65,335,.85],
-["Louisiana State University School of Dentistry","LA",3.65,335,.95],["University of New England College of Dental Medicine","ME",3.55,325,.7],["University of Maryland School of Dentistry","MD",3.70,340,.85],["Boston University Henry M. Goldman School of Dental Medicine","MA",3.70,335,.75],["Harvard School of Dental Medicine","MA",3.85,350,.55],["Tufts University School of Dental Medicine","MA",3.65,335,.75],
-["University of Detroit Mercy School of Dentistry","MI",3.60,330,.8],["University of Michigan School of Dentistry","MI",3.82,350,.65],["University of Minnesota School of Dentistry","MN",3.75,340,.75],["University of Mississippi Medical Center School of Dentistry","MS",3.70,335,.9],
-["A.T. Still University Missouri School of Dentistry & Oral Health","MO",3.55,325,.7],["University of Missouri-Kansas City School of Dentistry","MO",3.65,335,.85],["Creighton University School of Dentistry","NE",3.65,335,.8],["University of Nevada, Las Vegas School of Dental Medicine","NV",3.65,335,.75],
-["Rutgers School of Dental Medicine","NJ",3.65,335,.85],["Columbia University College of Dental Medicine","NY",3.85,350,.55],["New York University College of Dentistry","NY",3.65,335,.75],["SUNY Buffalo School of Dental Medicine","NY",3.70,340,.85],["Stony Brook University School of Dental Medicine","NY",3.80,345,.7],
-["East Carolina University School of Dental Medicine","NC",3.70,335,1.0],["University of North Carolina Adams School of Dentistry","NC",3.75,345,.95],["Case Western Reserve University School of Dental Medicine","OH",3.70,335,.75],["The Ohio State University College of Dentistry","OH",3.70,340,.9],["Oregon Health & Science University School of Dentistry","OR",3.75,340,.75],
-["University of Pennsylvania School of Dental Medicine","PA",3.85,350,.6],["Temple University Kornberg School of Dentistry","PA",3.65,335,.75],["University of Pittsburgh School of Dental Medicine","PA",3.70,340,.75],["Medical University of South Carolina James B. Edwards College of Dental Medicine","SC",3.70,335,.9],
-["Meharry Medical College School of Dentistry","TN",3.55,325,.8],["University of Tennessee Health Science Center College of Dentistry","TN",3.70,335,.9],["Texas A&M University College of Dentistry","TX",3.75,345,.9],["Texas Tech University Health Sciences Center School of Dental Medicine","TX",3.70,340,.9],["UT Health San Antonio School of Dentistry","TX",3.75,340,.9],["UTHealth Houston School of Dentistry","TX",3.75,340,.9],
-["Roseman University College of Dental Medicine","UT",3.60,330,.75],["VCU School of Dentistry","VA",3.65,335,.85],["Virginia Tech Carilion?","VA",3.55,325,.6],["University of Washington School of Dentistry","WA",3.75,345,.65],["West Virginia University School of Dentistry","WV",3.65,330,.9],["Marquette University School of Dentistry","WI",3.65,335,.85],
-["University of Puerto Rico School of Dental Medicine","PR",3.55,325,.95],["Larkin University College of Dentistry","FL",3.55,325,.8],["Yeshiva University College of Dental Medicine","NY",3.60,330,.7],["University of Pikeville Tanner College of Dental Medicine","KY",3.55,325,.7],["Lyon College School of Dental Medicine","AR",3.55,325,.7],["Pacific Northwest University School of Dental Medicine","WA",3.55,325,.7],["Northeast Ohio Medical University College of Dentistry","OH",3.60,330,.8],["High Point University Workman School of Dental Medicine","NC",3.55,325,.7],["Lincoln Memorial University College of Dental Medicine","TN",3.55,325,.85]
+["University of Alabama at Birmingham","AL",3.78,350,1.0],
+["Arizona School of Dentistry & Oral Health","AZ",3.55,330,.75],
+["Midwestern University College of Dental Medicine-Arizona","AZ",3.55,330,.75],
+["University of Arkansas for Medical Sciences","AR",3.65,340,.9],
+["Loma Linda University","CA",3.75,340,.65],
+["UCLA School of Dentistry","CA",3.88,350,.55],
+["UCSF School of Dentistry","CA",3.78,350,.65],
+["University of Southern California","CA",3.70,340,.85],
+["University of the Pacific","CA",3.72,345,.8],
+["Western University of Health Sciences","CA",3.65,335,.85],
+["California Northstate University","CA",3.60,330,.8],
+["University of Colorado School of Dental Medicine","CO",3.65,340,.8],
+["University of Connecticut School of Dental Medicine","CT",3.75,345,.75],
+["Howard University College of Dentistry","DC",3.55,325,.8],
+["LECOM School of Dental Medicine","FL",3.60,325,.85],
+["Nova Southeastern University","FL",3.65,330,.9],
+["University of Florida College of Dentistry","FL",3.80,345,.95],
+["Dental College of Georgia at Augusta University","GA",3.72,340,.95],
+["University of Illinois Chicago","IL",3.65,335,.8],
+["Southern Illinois University","IL",3.70,335,.85],
+["Midwestern University College of Dental Medicine-Illinois","IL",3.55,330,.75],
+["Indiana University School of Dentistry","IN",3.70,335,.85],
+["University of Iowa College of Dentistry","IA",3.75,340,.8],
+["University of Kentucky College of Dentistry","KY",3.65,335,.85],
+["University of Louisville School of Dentistry","KY",3.65,335,.85],
+["Louisiana State University School of Dentistry","LA",3.65,335,.95],
+["University of New England College of Dental Medicine","ME",3.55,325,.7],
+["University of Maryland School of Dentistry","MD",3.70,340,.85],
+["Boston University Henry M. Goldman School of Dental Medicine","MA",3.70,335,.75],
+["Harvard School of Dental Medicine","MA",3.85,350,.55],
+["Tufts University School of Dental Medicine","MA",3.65,335,.75],
+["University of Detroit Mercy School of Dentistry","MI",3.60,330,.8],
+["University of Michigan School of Dentistry","MI",3.82,350,.65],
+["University of Minnesota School of Dentistry","MN",3.75,340,.75],
+["University of Mississippi Medical Center School of Dentistry","MS",3.70,335,.9],
+["A.T. Still University Missouri School of Dentistry & Oral Health","MO",3.55,325,.7],
+["University of Missouri-Kansas City School of Dentistry","MO",3.65,335,.85],
+["Creighton University School of Dentistry","NE",3.65,335,.8],
+["University of Nevada, Las Vegas School of Dental Medicine","NV",3.65,335,.75],
+["Rutgers School of Dental Medicine","NJ",3.65,335,.85],
+["Columbia University College of Dental Medicine","NY",3.85,350,.55],
+["New York University College of Dentistry","NY",3.65,335,.75],
+["SUNY Buffalo School of Dental Medicine","NY",3.70,340,.85],
+["Stony Brook University School of Dental Medicine","NY",3.80,345,.7],
+["East Carolina University School of Dental Medicine","NC",3.70,335,1.0],
+["University of North Carolina Adams School of Dentistry","NC",3.75,345,.95],
+["Case Western Reserve University School of Dental Medicine","OH",3.70,335,.75],
+["The Ohio State University College of Dentistry","OH",3.70,340,.9],
+["Oregon Health & Science University School of Dentistry","OR",3.75,340,.75],
+["University of Pennsylvania School of Dental Medicine","PA",3.85,350,.6],
+["Temple University Kornberg School of Dentistry","PA",3.65,335,.75],
+["University of Pittsburgh School of Dental Medicine","PA",3.70,340,.75],
+["Medical University of South Carolina James B. Edwards College of Dental Medicine","SC",3.70,335,.9],
+["Meharry Medical College School of Dentistry","TN",3.55,325,.8],
+["University of Tennessee Health Science Center College of Dentistry","TN",3.70,335,.9],
+["Texas A&M University College of Dentistry","TX",3.75,345,.9],
+["Texas Tech University Health Sciences Center School of Dental Medicine","TX",3.70,340,.9],
+["UT Health San Antonio School of Dentistry","TX",3.75,340,.9],
+["UTHealth Houston School of Dentistry","TX",3.75,340,.9],
+["Roseman University College of Dental Medicine","UT",3.60,330,.75],
+["VCU School of Dentistry","VA",3.65,335,.85],
+["Virginia Tech Carilion?","VA",3.55,325,.6],
+["University of Washington School of Dentistry","WA",3.75,345,.65],
+["West Virginia University School of Dentistry","WV",3.65,330,.9],
+["Marquette University School of Dentistry","WI",3.65,335,.85],
+["University of Puerto Rico School of Dental Medicine","PR",3.55,325,.95],
+["Larkin University College of Dentistry","FL",3.55,325,.8],
+["Yeshiva University College of Dental Medicine","NY",3.60,330,.7],
+["University of Pikeville Tanner College of Dental Medicine","KY",3.55,325,.7],
+["Lyon College School of Dental Medicine","AR",3.55,325,.7],
+["Pacific Northwest University School of Dental Medicine","WA",3.55,325,.7],
+["Northeast Ohio Medical University College of Dentistry","OH",3.60,330,.8],
+["High Point University Workman School of Dental Medicine","NC",3.55,325,.7],
+["Lincoln Memorial University College of Dental Medicine","TN",3.55,325,.85]
 ];
 
 function init(){
- const ss=document.getElementById("state"); ss.innerHTML='<option value="">Select state</option>'+states.map(s=>`<option>${s}</option>`).join("");
+ const ss=document.getElementById("state");
+ ss.innerHTML='<option value="">Select state</option>'+states.map(s=>`<option>${s}</option>`).join("");
  renderSchools();
 }
+
 function renderSchools(){
  const q=document.getElementById("search").value.toLowerCase();
  const box=document.getElementById("schoolGrid");
- box.innerHTML=schools.map((s,i)=>({s,i})).filter(x=>x.s[0].toLowerCase().includes(q)||x.s[1].toLowerCase().includes(q)).map(x=>`<label class="school"><input type="checkbox" value="${x.i}" data-school><span><b>${x.s[0]}</b><small>${x.s[1]} • Profile benchmark: ~${x.s[2].toFixed(2)} GPA / ${x.s[3]} DAT</small></span></label>`).join("");
+
+ box.innerHTML=schools
+ .map((s,i)=>({s,i}))
+ .filter(x=>x.s[0].toLowerCase().includes(q)||x.s[1].toLowerCase().includes(q))
+ .map(x=>`
+ <label class="school">
+   <input type="checkbox" value="${x.i}" data-school>
+   <span>
+     <b>${x.s[0]}</b>
+     <small>${x.s[1]} • Profile benchmark: ~${x.s[2].toFixed(2)} GPA / ${x.s[3]} DAT</small>
+   </span>
+ </label>
+ `).join("");
 }
-function selectVisible(){document.querySelectorAll("[data-school]").forEach(x=>x.checked=true)}
-function clearSchools(){document.querySelectorAll("[data-school]").forEach(x=>x.checked=false)}
-function val(id, fallback=0){const n=parseFloat(document.getElementById(id).value);return Number.isFinite(n)?n:fallback}
+
+function selectVisible(){
+ document.querySelectorAll("[data-school]").forEach(x=>x.checked=true);
+}
+
+function clearSchools(){
+ document.querySelectorAll("[data-school]").forEach(x=>x.checked=false);
+}
+
+function val(id, fallback=0){
+ const n=parseFloat(document.getElementById(id).value);
+ return Number.isFinite(n)?n:fallback;
+}
+
 function rankSchools(){
- const gpa=val("gpa"), sgpa=val("sgpa"), dat=val("dat"), ts=val("ts"), shadow=val("shadow"), clinical=val("clinical"), vol=val("volunteer"), research=val("research"), lead=val("lead",.7), state=document.getElementById("state").value, timing=val("timing",.85), prereq=val("prereq",1);
- const chosen=[...document.querySelectorAll("[data-school]:checked")].map(x=>schools[+x.value]);
- if(!chosen.length){alert("Choose at least one dental school.");return}
- if(!gpa||!dat){alert("Enter at least your overall GPA and DAT Academic Average.");return}
+
+ const gpa=val("gpa"),
+ sgpa=val("sgpa"),
+ dat=val("dat"),
+ ts=val("ts"),
+ shadow=val("shadow"),
+ clinical=val("clinical"),
+ vol=val("volunteer"),
+ research=val("research"),
+ lead=val("lead",.7),
+ state=document.getElementById("state").value,
+ timing=val("timing",.85),
+ prereq=val("prereq",1);
+
+ const chosen=[...document.querySelectorAll("[data-school]:checked")]
+ .map(x=>schools[+x.value]);
+
+ if(!chosen.length){
+   alert("Choose at least one dental school.");
+   return;
+ }
+
+ if(!gpa||!dat){
+   alert("Enter at least your overall GPA and DAT Academic Average.");
+   return;
+ }
+
  const ranked=chosen.map(s=>{
+
    const gpaFit=Math.max(0,Math.min(1,1-(s[2]-gpa)*2.7));
+
    const datFit=Math.max(0,Math.min(1,1-(s[3]-dat)/55));
-   const exp=Math.min(1,(Math.min(shadow,150)/150*.22)+(Math.min(clinical,250)/250*.30)+(Math.min(vol,250)/250*.23)+(Math.min(research,200)/200*.15)+(lead*.10));
-   const stateFit=s[4]+(state===s[1]?0.12:0); 
-   const timingFit=timing, reqFit=prereq;
-   const score=Math.max(0,Math.min(100,(gpaFit*.31+datFit*.34+exp*.15+Math.min(1,stateFit)*.10+timingFit*.05+reqFit*.05)*100));
+
+   const exp=Math.min(
+     1,
+     (Math.min(shadow,150)/150*.22)+
+     (Math.min(clinical,250)/250*.30)+
+     (Math.min(vol,250)/250*.23)+
+     (Math.min(research,200)/200*.15)+
+     (lead*.10)
+   );
+
+   const stateFit=s[4]+(state===s[1]?0.12:0);
+
+   const timingFit=timing,
+   reqFit=prereq;
+
+   const score=Math.max(
+     0,
+     Math.min(
+       100,
+       (
+         gpaFit*.31+
+         datFit*.34+
+         exp*.15+
+         Math.min(1,stateFit)*.10+
+         timingFit*.05+
+         reqFit*.05
+       )*100
+     )
+   );
+
    let category=score>=78?"Safety":score>=61?"Target":"Reach";
+
    let badge=category.toLowerCase();
+
    let reasons=[];
-   if(gpa>=s[2]) reasons.push("GPA at/above benchmark"); else reasons.push("GPA below benchmark");
-   if(dat>=s[3]) reasons.push("DAT at/above benchmark"); else reasons.push("DAT below benchmark");
-   if(state===s[1]) reasons.push("in-state/regional fit");
-   if(clinical>=150) reasons.push("solid clinical exposure");
-   if(vol>=150) reasons.push("solid service hours");
-   return {s,score,category,badge,reasons};
+
+   if(gpa>=s[2])
+     reasons.push("GPA at/above benchmark");
+   else
+     reasons.push("GPA below benchmark");
+
+   if(dat>=s[3])
+     reasons.push("DAT at/above benchmark");
+   else
+     reasons.push("DAT below benchmark");
+
+   if(state===s[1])
+     reasons.push("in-state/regional fit");
+
+   if(clinical>=150)
+     reasons.push("solid clinical exposure");
+
+   if(vol>=150)
+     reasons.push("solid service hours");
+
+   return {
+     s,
+     score,
+     category,
+     badge,
+     reasons
+   };
+
  }).sort((a,b)=>b.score-a.score);
+
  document.getElementById("resultsSection").classList.remove("hidden");
- document.getElementById("summary").innerHTML=[["Selected",ranked.length],["Safety",ranked.filter(x=>x.category==="Safety").length],["Targets",ranked.filter(x=>x.category==="Target").length],["Reaches",ranked.filter(x=>x.category==="Reach").length]].map(x=>`<div class="stat"><b>${x[1]}</b><span>${x[0]}</span></div>`).join("");
- document.getElementById("results").innerHTML=ranked.map((r,i)=>`<div class="result"><div class="result-head"><div><div class="schoolname">${i+1}. ${r.s[0]}</div><div class="meta">${r.s[1]} • Estimated application-fit score</div></div><span class="badge ${r.badge}">${r.category}</span></div><div class="bar"><div class="fill" style="width:${r.score}%"></div></div><div class="reason">${r.reasons.join(" • ")}</div><div class="chips"><span class="chip">Benchmark GPA ${r.s[2].toFixed(2)}</span><span class="chip">Benchmark DAT ${r.s[3]}</span><span class="chip">Residency fit considered</span><span class="chip">Holistic factors considered</span></div></div>`).join("");
- document.getElementById("resultsSection").scrollIntoView({behavior:"smooth"});
+
+ document.getElementById("summary").innerHTML=[
+   ["Selected",ranked.length],
+   ["Safety",ranked.filter(x=>x.category==="Safety").length],
+   ["Targets",ranked.filter(x=>x.category==="Target").length],
+   ["Reaches",ranked.filter(x=>x.category==="Reach").length]
+ ].map(x=>`
+   <div class="stat">
+     <b>${x[1]}</b>
+     <span>${x[0]}</span>
+   </div>
+ `).join("");
+
+ document.getElementById("results").innerHTML=ranked.map((r,i)=>`
+   <div class="result">
+
+     <div class="result-head">
+
+       <div>
+         <div class="schoolname">
+           ${i+1}. ${r.s[0]}
+         </div>
+
+         <div class="meta">
+           ${r.s[1]} • Estimated application-fit score
+         </div>
+       </div>
+
+       <span class="badge ${r.badge}">
+         ${r.category}
+       </span>
+
+     </div>
+
+     <div class="bar">
+       <div class="fill" style="width:${r.score}%"></div>
+     </div>
+
+     <div class="reason">
+       ${r.reasons.join(" • ")}
+     </div>
+
+     <div class="chips">
+       <span class="chip">
+         Benchmark GPA ${r.s[2].toFixed(2)}
+       </span>
+
+       <span class="chip">
+         Benchmark DAT ${r.s[3]}
+       </span>
+
+       <span class="chip">
+         Residency fit considered
+       </span>
+
+       <span class="chip">
+         Holistic factors considered
+       </span>
+     </div>
+
+   </div>
+ `).join("");
+
+ document.getElementById("resultsSection").scrollIntoView({
+   behavior:"smooth"
+ });
 }
+
 init();
+
 </script>
+
 </body>
 </html>
